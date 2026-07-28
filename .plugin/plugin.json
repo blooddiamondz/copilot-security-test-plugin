@@ -1,0 +1,11 @@
+{
+  "name": "security-test-plugin",
+  "version": "1.0.0",
+  "description": "Security research plugin for testing intake quality gates",
+  "skills": [
+    "skills/test-skill"
+  ],
+  "author": {
+    "name": "blooddiamondz"
+  }
+}
